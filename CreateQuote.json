@@ -1,0 +1,95 @@
+{
+    "policyDetails": {
+        "affinityId": "1",
+        "beneficiaryList": [
+            {
+                "dob": "1990-01-01",
+                "gender": "M",
+                "links": null,
+                "name": "Raj",
+                "nomineeName": "Meera",
+                "nomineeRelation": "1",
+                "nomineeType": "1",
+                "proposerRelation": "1"
+            }
+        ],
+        "branchId": "1",
+        "communicationDetails": {
+            "address1": "88",
+            "address2": "KS Colony",
+            "address3": "Hinoo",
+            "city": "Ranchi",
+            "district": "Ranchi",
+            "emailId": "xyz@xxx.com",
+            "links": null,
+            "mobile": "1232321234",
+            "pincode": "111111",
+            "state": "JH",
+            "telephone": "343434"
+        },
+        "customerId": "2",
+        "employeeCode": "E001",
+        "gstNo": "1",
+        "links": null,
+        "masterpolicyno": "1",
+        "paymentOption": "Cash",
+        "planId": "1",
+        "policyDetails": {
+            "affinityid": "1",
+            "branchId": "1",
+            "covernoteno": "1",
+            "customerid": "1",
+            "employeecode": "E001",
+            "lastUpdatedBy": "1",
+            "lastUpdatedDate": "2018-01-01",
+            "masterpolicyno": "1",
+            "planId": "1",
+            "policyEndDate": "2019-01-01",
+            "policyId": "1",
+            "policyStartDate": "2014-01-01",
+            "policyStatusId": "1",
+            "policyterm": "1",
+            "productID": "1"
+        },
+        "policyEndDate": "2019-01-01",
+        "policyId": "1",
+        "policyStartDate": "2014-01-01",
+        "policyStatusId": "1",
+        "policyTerm": "1",
+        "productId": "1",
+        "questionList": [
+            {
+                "questionAns": "true",
+                "questionId": "2"
+            }
+        ],
+        "sumInsured": "500000"
+    }
+}            "customerid": null,
+            "employeecode": null,
+            "lastUpdatedBy": null,
+            "lastUpdatedDate": null,
+            "masterpolicyno": null,
+            "planId": null,
+            "policyEndDate": null,
+            "policyId": null,
+            "policyStartDate": null,
+            "policyStatusId": null,
+            "policyterm": null,
+            "productID": null
+        },
+        "policyEndDate": null,
+        "policyId": null,
+        "policyStartDate": null,
+        "policyStatusId": null,
+        "policyTerm": null,
+        "productId": null,
+        "questionList": [
+            {
+                "questionAns": null,
+                "questionId": null
+            }
+        ],
+        "sumInsured": null
+    }
+}
