@@ -1,0 +1,994 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "API to handle policy related information",
+		"version": "1.0",
+		"title": "Documentation for Policy service",
+		"termsOfService": "TERMS OF SERVICE URL",
+		"contact": {
+			"name": "Liberty",
+			"url": "https://LibertyIndia.com",
+			"email": "conatact@liberty.com"
+		},
+		"license": {
+			"name": "LICENSE",
+			"url": "LICENSE URL"
+		}
+	},
+	"host": "microservices-alb-1120325685.ap-south-1.elb.amazonaws.com",
+	"basePath": "/",
+	"tags": [{
+		"name": "basic-error-controller",
+		"description": "Basic Error Controller"
+	},
+	{
+		"name": "policy-controller",
+		"description": "Policy Controller"
+	}],
+	"schemes": ["http",
+	"https"],
+	"paths": {
+		"/api/policy/products/{productID}": {
+			"get": {
+				"tags": ["policy-controller"],
+				"summary": "getProducts",
+				"operationId": "getProductsUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "productID",
+					"in": "path",
+					"description": "productID",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"items": {
+								"$ref": "#/definitions/ProductResource"
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/api/policy/products/{productID}/plans": {
+			"get": {
+				"tags": ["policy-controller"],
+				"summary": "getPlans",
+				"operationId": "getPlansUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "productID",
+					"in": "path",
+					"description": "productID",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/PlansResource"
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/api/policy/products/{productID}/questions": {
+			"get": {
+				"tags": ["policy-controller"],
+				"summary": "getQuestions",
+				"operationId": "getQuestionsUsingGET",
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "productID",
+					"in": "path",
+					"description": "productID",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/QuestionResource"
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/api/policy/quote": {
+			"post": {
+				"tags": ["policy-controller"],
+				"summary": "saveQuote",
+				"operationId": "saveQuoteUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "policyCreationRequest",
+					"description": "policyCreationRequest",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/PolicyCreationRequestWrapper"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CreateProposal"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/error": {
+			"get": {
+				"tags": ["basic-error-controller"],
+				"summary": "errorHtml",
+				"operationId": "errorHtmlUsingGET",
+				"produces": ["text/html"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"head": {
+				"tags": ["basic-error-controller"],
+				"summary": "errorHtml",
+				"operationId": "errorHtmlUsingHEAD",
+				"consumes": ["application/json"],
+				"produces": ["text/html"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["basic-error-controller"],
+				"summary": "errorHtml",
+				"operationId": "errorHtmlUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["text/html"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["basic-error-controller"],
+				"summary": "errorHtml",
+				"operationId": "errorHtmlUsingPUT",
+				"consumes": ["application/json"],
+				"produces": ["text/html"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["basic-error-controller"],
+				"summary": "errorHtml",
+				"operationId": "errorHtmlUsingDELETE",
+				"produces": ["text/html"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"options": {
+				"tags": ["basic-error-controller"],
+				"summary": "errorHtml",
+				"operationId": "errorHtmlUsingOPTIONS",
+				"consumes": ["application/json"],
+				"produces": ["text/html"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			},
+			"patch": {
+				"tags": ["basic-error-controller"],
+				"summary": "errorHtml",
+				"operationId": "errorHtmlUsingPATCH",
+				"consumes": ["application/json"],
+				"produces": ["text/html"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ModelAndView"
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"CreateProposal": {
+			"type": "object",
+			"properties": {
+				"affinityId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"beneficiaryList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProposalBeneficiaryInfo"
+					}
+				},
+				"branchId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"communicationDetails": {
+					"$ref": "#/definitions/ProposalCommunicationDetails"
+				},
+				"customerId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"employeeCode": {
+					"type": "string"
+				},
+				"gstNo": {
+					"type": "string"
+				},
+				"links": {
+					"type": "array",
+					"xml": {
+						"name": "link",
+						"namespace": "http://www.w3.org/2005/Atom",
+						"attribute": false,
+						"wrapped": false
+					},
+					"items": {
+						"$ref": "#/definitions/Link"
+					}
+				},
+				"masterpolicyno": {
+					"type": "string"
+				},
+				"paymentOption": {
+					"type": "string"
+				},
+				"planId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"policyDetails": {
+					"$ref": "#/definitions/PolicyDetails"
+				},
+				"policyEndDate": {
+					"$ref": "#/definitions/Timestamp"
+				},
+				"policyId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"policyStartDate": {
+					"$ref": "#/definitions/Timestamp"
+				},
+				"policyStatusId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"policyTerm": {
+					"type": "string"
+				},
+				"productId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"questionList": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ProposalQuestionInfo"
+					}
+				},
+				"sumInsured": {
+					"type": "string"
+				}
+			},
+			"title": "CreateProposal"
+		},
+		"Link": {
+			"type": "object",
+			"properties": {
+				"deprecation": {
+					"type": "string",
+					"xml": {
+						"name": "deprecation",
+						"attribute": true,
+						"wrapped": false
+					}
+				},
+				"href": {
+					"type": "string",
+					"xml": {
+						"name": "href",
+						"attribute": true,
+						"wrapped": false
+					}
+				},
+				"hreflang": {
+					"type": "string",
+					"xml": {
+						"name": "hreflang",
+						"attribute": true,
+						"wrapped": false
+					}
+				},
+				"media": {
+					"type": "string",
+					"xml": {
+						"name": "media",
+						"attribute": true,
+						"wrapped": false
+					}
+				},
+				"rel": {
+					"type": "string",
+					"xml": {
+						"name": "rel",
+						"attribute": true,
+						"wrapped": false
+					}
+				},
+				"templated": {
+					"type": "boolean"
+				},
+				"title": {
+					"type": "string",
+					"xml": {
+						"name": "title",
+						"attribute": true,
+						"wrapped": false
+					}
+				},
+				"type": {
+					"type": "string",
+					"xml": {
+						"name": "type",
+						"attribute": true,
+						"wrapped": false
+					}
+				}
+			},
+			"title": "Link"
+		},
+		"ModelAndView": {
+			"type": "object",
+			"properties": {
+				"empty": {
+					"type": "boolean"
+				},
+				"model": {
+					"type": "object"
+				},
+				"modelMap": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "object"
+					}
+				},
+				"reference": {
+					"type": "boolean"
+				},
+				"status": {
+					"type": "string",
+					"enum": ["100",
+					"101",
+					"102",
+					"103",
+					"200",
+					"201",
+					"202",
+					"203",
+					"204",
+					"205",
+					"206",
+					"207",
+					"208",
+					"226",
+					"300",
+					"301",
+					"302",
+					"303",
+					"304",
+					"305",
+					"307",
+					"308",
+					"400",
+					"401",
+					"402",
+					"403",
+					"404",
+					"405",
+					"406",
+					"407",
+					"408",
+					"409",
+					"410",
+					"411",
+					"412",
+					"413",
+					"414",
+					"415",
+					"416",
+					"417",
+					"418",
+					"419",
+					"420",
+					"421",
+					"422",
+					"423",
+					"424",
+					"426",
+					"428",
+					"429",
+					"431",
+					"451",
+					"500",
+					"501",
+					"502",
+					"503",
+					"504",
+					"505",
+					"506",
+					"507",
+					"508",
+					"509",
+					"510",
+					"511"]
+				},
+				"view": {
+					"$ref": "#/definitions/View"
+				},
+				"viewName": {
+					"type": "string"
+				}
+			},
+			"title": "ModelAndView"
+		},
+		"PlanDetails": {
+			"type": "object",
+			"properties": {
+				"ageRange": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"grosspremium": {
+					"type": "number"
+				},
+				"premium": {
+					"type": "number"
+				},
+				"sumInsured": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "PlanDetails"
+		},
+		"PlanSumInsuredDetails": {
+			"type": "object",
+			"properties": {
+				"sumInsured": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "PlanSumInsuredDetails"
+		},
+		"PlansResource": {
+			"type": "object",
+			"properties": {
+				"links": {
+					"type": "array",
+					"xml": {
+						"name": "link",
+						"namespace": "http://www.w3.org/2005/Atom",
+						"attribute": false,
+						"wrapped": false
+					},
+					"items": {
+						"$ref": "#/definitions/Link"
+					}
+				},
+				"planDetails": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PlanDetails"
+					}
+				},
+				"planid": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"policytype": {
+					"type": "string"
+				},
+				"productid": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"sumInsuredinLakhs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PlanSumInsuredDetails"
+					}
+				}
+			},
+			"title": "PlansResource"
+		},
+		"PolicyCreationRequestWrapper": {
+			"type": "object",
+			"properties": {
+				"policyDetails": {
+					"$ref": "#/definitions/CreateProposal"
+				}
+			},
+			"title": "PolicyCreationRequestWrapper"
+		},
+		"PolicyDetails": {
+			"type": "object",
+			"properties": {
+				"affinityid": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"branchId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"covernoteno": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"customerid": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"employeecode": {
+					"type": "string"
+				},
+				"lastUpdatedBy": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"lastUpdatedDate": {
+					"type": "string",
+					"format": "date"
+				},
+				"masterpolicyno": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"planId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"policyEndDate": {
+					"$ref": "#/definitions/Timestamp"
+				},
+				"policyId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"policyStartDate": {
+					"$ref": "#/definitions/Timestamp"
+				},
+				"policyStatusId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"policyterm": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"productID": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "PolicyDetails"
+		},
+		"ProductResource": {
+			"type": "object",
+			"properties": {
+				"backdatedinception": {
+					"type": "boolean"
+				},
+				"backdatedinceptionrange": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"effectivedate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"enddate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"links": {
+					"type": "array",
+					"xml": {
+						"name": "link",
+						"namespace": "http://www.w3.org/2005/Atom",
+						"attribute": false,
+						"wrapped": false
+					},
+					"items": {
+						"$ref": "#/definitions/Link"
+					}
+				},
+				"lobid": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"productid": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"productname": {
+					"type": "string"
+				},
+				"riskstartdaterange": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"shortProductname": {
+					"type": "string"
+				},
+				"startdate": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"title": "ProductResource"
+		},
+		"ProposalBeneficiaryInfo": {
+			"type": "object",
+			"properties": {
+				"dob": {
+					"type": "string",
+					"format": "date"
+				},
+				"gender": {
+					"type": "string"
+				},
+				"links": {
+					"type": "array",
+					"xml": {
+						"name": "link",
+						"namespace": "http://www.w3.org/2005/Atom",
+						"attribute": false,
+						"wrapped": false
+					},
+					"items": {
+						"$ref": "#/definitions/Link"
+					}
+				},
+				"name": {
+					"type": "string"
+				},
+				"nomineeName": {
+					"type": "string"
+				},
+				"nomineeRelation": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"nomineeType": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"proposerRelation": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "ProposalBeneficiaryInfo"
+		},
+		"ProposalCommunicationDetails": {
+			"type": "object",
+			"properties": {
+				"address1": {
+					"type": "string"
+				},
+				"address2": {
+					"type": "string"
+				},
+				"address3": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"district": {
+					"type": "string"
+				},
+				"emailId": {
+					"type": "string"
+				},
+				"links": {
+					"type": "array",
+					"xml": {
+						"name": "link",
+						"namespace": "http://www.w3.org/2005/Atom",
+						"attribute": false,
+						"wrapped": false
+					},
+					"items": {
+						"$ref": "#/definitions/Link"
+					}
+				},
+				"mobile": {
+					"type": "string"
+				},
+				"pincode": {
+					"type": "string"
+				},
+				"state": {
+					"type": "string"
+				},
+				"telephone": {
+					"type": "string"
+				}
+			},
+			"title": "ProposalCommunicationDetails"
+		},
+		"ProposalQuestionInfo": {
+			"type": "object",
+			"properties": {
+				"questionAns": {
+					"type": "boolean"
+				},
+				"questionId": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "ProposalQuestionInfo"
+		},
+		"QuestionResource": {
+			"type": "object",
+			"properties": {
+				"links": {
+					"type": "array",
+					"xml": {
+						"name": "link",
+						"namespace": "http://www.w3.org/2005/Atom",
+						"attribute": false,
+						"wrapped": false
+					},
+					"items": {
+						"$ref": "#/definitions/Link"
+					}
+				},
+				"productid": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"question": {
+					"type": "string"
+				},
+				"questionid": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "QuestionResource"
+		},
+		"Timestamp": {
+			"type": "object",
+			"properties": {
+				"date": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"day": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hours": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"minutes": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"month": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"nanos": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"seconds": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"time": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"timezoneOffset": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"year": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "Timestamp"
+		},
+		"View": {
+			"type": "object",
+			"properties": {
+				"contentType": {
+					"type": "string"
+				}
+			},
+			"title": "View"
+		}
+	}
+}
